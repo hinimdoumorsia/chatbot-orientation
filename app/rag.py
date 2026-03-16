@@ -18,7 +18,9 @@ conversation_history = []
 
 
 def get_embeddings():
-    return GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    return GoogleGenerativeAIEmbeddings(
+        model="models/gemini-embedding-001"
+    )
 
 
 def build_vectorstore():
