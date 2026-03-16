@@ -11,8 +11,6 @@ from langchain_core.messages import HumanMessage, AIMessage
 
 load_dotenv()
 
-
-
 VECTORSTORE_DIR = "vectorstore"
 PDF_PATH = "data/orientation_bacheliers.pdf"
 
@@ -61,11 +59,10 @@ def get_rag_chain():
         search_kwargs={"k": 4},
     )
 
-    
-model = ChatGroq(
-    model="llama-3.1-8b-instant",
-    api_key=os.getenv("GROQ_API_KEY")  
-)
+    model = ChatGroq(
+        model="llama-3.1-8b-instant",
+        api_key=os.getenv("GROQ_API_KEY")  
+    )
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", """Tu es OrientBot, un conseiller d'orientation scolaire expert et bienveillant,
