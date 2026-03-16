@@ -1,0 +1,43 @@
+# Variables d'environnement (securite)
+.env
+*.env
+
+# Environnement virtuel Python
+env/
+venv/
+.venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Vectorstore ChromaDB (regenere automatiquement)
+vectorstore/
+
+# Dependances Node.js
+frontend/node_modules/
+
+# Build frontend
+frontend/dist/
+frontend/build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+uvicorn.log
+
+# Fichiers temporaires
+*.tmp
+*.bak
