@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from app.routes import router
+from app.rag import get_rag_chain
 
 load_dotenv()
 
@@ -20,6 +21,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# Prechauffer le RAG au demarrage
+@app.on_event("startup")
+async def startup_event():
+    print("Initialisation du RAG...")
+    get_rag_chain()
+    print("RAG pret !")
+
+
 
 app.include_router(router)
 
