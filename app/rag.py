@@ -20,7 +20,8 @@ conversation_history = []
 def get_embeddings():
     return GoogleGenerativeAIEmbeddings(
         model="models/gemini-embedding-001",
-        task_type="retrieval_document"
+        task_type="retrieval_document",
+        api_key=os.getenv("GOOGLE_API_KEY") 
     )
 
 
