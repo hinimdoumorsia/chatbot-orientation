@@ -11,8 +11,6 @@ from langchain_core.messages import HumanMessage, AIMessage
 
 load_dotenv()
 
-load_dotenv()
-
 # Vérifie que Render lit bien ta clé
 print("GOOGLE_API_KEY:", os.getenv("GOOGLE_API_KEY"))
 print("GROQ_API_KEY:", os.getenv("GROQ_API_KEY"))
