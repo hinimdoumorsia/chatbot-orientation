@@ -2,6 +2,7 @@
 langchain-core==0.3.28
 langchain==0.3.7
 langchain-community==0.3.7
+langchain-google-genai
 
 # LLM Groq
 langchain-groq==0.2.1
@@ -21,3 +22,5 @@ pydantic==2.10.3
 
 # Environnement
 python-dotenv==1.0.1
+
+
