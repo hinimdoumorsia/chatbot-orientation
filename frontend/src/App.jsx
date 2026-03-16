@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 // import logo from "/orientation.jpg";
 const logo = null;
 
-const API_URL = "/chat";
+const API_URL = "https://chatbot-orientation.onrender.com/chat";
 
 const SUGGESTIONS = [
   "J'ai le bac C, quelles filières me conseilles-tu ?",
