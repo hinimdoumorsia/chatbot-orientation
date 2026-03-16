@@ -1,4 +1,4 @@
-# 🎓 OrientBot — Chatbot d'Orientation Scolaire Intelligent
+# OrientBot — Chatbot d'Orientation Scolaire Intelligent
 
 ![Version](https://img.shields.io/badge/version-1.0.0-7c6af7?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -15,24 +15,26 @@
 
 > **OrientBot** est un chatbot éducatif intelligent conçu pour aider les nouveaux bacheliers à choisir leur filière universitaire. Il exploite la puissance du **RAG (Retrieval-Augmented Generation)**, de la **vectorisation de documents PDF**, de l'**API Groq** avec le modèle **LLaMA 3.1**, et d'une **API REST FastAPI** pour offrir des conseils d'orientation personnalisés et contextualisés.
 
----
-
-## 📋 Table des matières
-
-- [🎯 Description du projet](#-description-du-projet)
-- [🧠 Architecture technique](#-architecture-technique)
-- [⚙️ Fonctionnement du RAG](#️-fonctionnement-du-rag)
-- [🗂️ Structure du projet](#️-structure-du-projet)
-- [🚀 Installation et exécution](#-installation-et-exécution)
-- [🌐 API REST — Endpoints](#-api-rest--endpoints)
-- [🖥️ Interface Frontend](#️-interface-frontend)
-- [📦 Déploiement sur Render](#-déploiement-sur-render)
-- [🛠️ Technologies utilisées](#️-technologies-utilisées)
-- [📞 Contact](#-contact)
+**Site en production : [https://chatbot-orientation-1.onrender.com](https://chatbot-orientation-1.onrender.com)**
 
 ---
 
-## 🎯 Description du projet
+## Table des matières
+
+- [Description du projet](#description-du-projet)
+- [Architecture technique](#architecture-technique)
+- [Fonctionnement du RAG](#fonctionnement-du-rag)
+- [Structure du projet](#structure-du-projet)
+- [Installation et exécution](#installation-et-exécution)
+- [API REST — Endpoints](#api-rest--endpoints)
+- [Interface Frontend](#interface-frontend)
+- [Déploiement sur Render](#déploiement-sur-render)
+- [Technologies utilisées](#technologies-utilisées)
+- [Contact](#contact)
+
+---
+
+## Description du projet
 
 OrientBot est une application full-stack qui démontre la maîtrise de plusieurs technologies clés de l'IA moderne :
 
@@ -48,7 +50,7 @@ Le document de référence couvre toutes les filières selon la série de baccal
 
 ---
 
-## 🧠 Architecture technique
+## Architecture technique
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -89,14 +91,14 @@ Le document de référence couvre toutes les filières selon la série de baccal
 
 ---
 
-## ⚙️ Fonctionnement du RAG
+## Fonctionnement du RAG
 
 Le RAG (Retrieval-Augmented Generation) est le cœur de ce projet. Voici comment il fonctionne étape par étape :
 
 ### Phase 1 — Indexation (exécutée une seule fois)
 
 ```
-📄 PDF
+PDF
   │
   ▼
 [PyPDFLoader] ──→ Extraction du texte page par page
@@ -118,7 +120,7 @@ Le RAG (Retrieval-Augmented Generation) est le cœur de ce projet. Voici comment
 ### Phase 2 — Requête utilisateur (à chaque message)
 
 ```
-❓ Question bachelier
+Question bachelier
   │
   ▼
 [HuggingFaceEmbeddings] ──→ Vectorisation de la question
@@ -136,7 +138,7 @@ Le RAG (Retrieval-Augmented Generation) est le cœur de ce projet. Voici comment
 [StrOutputParser] ──→ Réponse texte propre
   │
   ▼
-✅ Réponse personnalisée au bachelier
+Réponse personnalisée au bachelier
 ```
 
 ### La chaîne LCEL
@@ -154,7 +156,7 @@ L'opérateur `|` (pipe) de LCEL permet de chaîner les composants de manière li
 
 ---
 
-## 🗂️ Structure du projet
+## Structure du projet
 
 ```
 chatbot-orientation/
@@ -185,7 +187,7 @@ chatbot-orientation/
 
 ---
 
-## 🚀 Installation et exécution
+## Installation et exécution
 
 ### Prérequis
 
@@ -193,14 +195,14 @@ chatbot-orientation/
 - Node.js 18+
 - Une clé API Groq gratuite → [console.groq.com](https://console.groq.com)
 
-### Étape 1 — Cloner le dépôt
+### Etape 1 — Cloner le dépôt
 
 ```bash
-git clone https://github.com/TON_USERNAME/chatbot-orientation.git
+git clone https://github.com/hinimdoumorsia/chatbot-orientation.git
 cd chatbot-orientation
 ```
 
-### Étape 2 — Créer l'environnement virtuel Python
+### Etape 2 — Créer l'environnement virtuel Python
 
 ```bash
 python -m venv env
@@ -212,15 +214,15 @@ env\Scripts\activate
 source env/bin/activate
 ```
 
-### Étape 3 — Installer les dépendances Python
+### Etape 3 — Installer les dépendances Python
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> ⚠️ L'installation peut prendre quelques minutes car elle inclut PyTorch et les modèles HuggingFace.
+> L'installation peut prendre quelques minutes car elle inclut PyTorch et les modèles HuggingFace.
 
-### Étape 4 — Configurer les variables d'environnement
+### Etape 4 — Configurer les variables d'environnement
 
 ```bash
 # Windows
@@ -236,7 +238,7 @@ Ouvre le fichier `.env` et ajoute ta clé Groq :
 GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-### Étape 5 — Lancer le backend
+### Etape 5 — Lancer le backend
 
 ```bash
 uvicorn main:app --reload
@@ -250,9 +252,9 @@ Au premier lancement, le système va automatiquement :
 3. Créer les embeddings
 4. Stocker le vectorstore dans `vectorstore/`
 
-> 💡 Ce processus n'a lieu qu'une seule fois. Les lancements suivants chargent directement le vectorstore existant.
+> Ce processus n'a lieu qu'une seule fois. Les lancements suivants chargent directement le vectorstore existant.
 
-### Étape 6 — Tester l'API
+### Etape 6 — Tester l'API
 
 Ouvre **http://127.0.0.1:8000/docs** dans ton navigateur pour accéder à la documentation Swagger interactive.
 
@@ -263,7 +265,7 @@ Teste avec :
 }
 ```
 
-### Étape 7 — Lancer le frontend
+### Etape 7 — Lancer le frontend
 
 Ouvre un **nouveau terminal** :
 
@@ -277,7 +279,7 @@ L'interface est accessible sur **http://localhost:3000**
 
 ---
 
-## 🌐 API REST — Endpoints
+## API REST — Endpoints
 
 | Méthode | Endpoint | Description |
 |---------|----------|-------------|
@@ -304,7 +306,7 @@ curl -X POST http://127.0.0.1:8000/chat \
 
 ---
 
-## 🖥️ Interface Frontend
+## Interface Frontend
 
 L'interface React propose :
 
@@ -317,20 +319,20 @@ L'interface React propose :
 
 ---
 
-## 📦 Déploiement sur Render
+## Déploiement sur Render
 
-### Étape 1 — Pousser sur GitHub
+### Etape 1 — Pousser sur GitHub
 
 ```bash
 git init
 git add .
 git commit -m "Initial commit — OrientBot RAG Chatbot"
 git branch -M main
-git remote add origin https://github.com/TON_USERNAME/chatbot-orientation.git
+git remote add origin https://github.com/hinimdoumorsia/chatbot-orientation.git
 git push -u origin main
 ```
 
-### Étape 2 — Créer un service sur Render
+### Etape 2 — Créer un service sur Render
 
 1. Va sur [render.com](https://render.com) et connecte-toi
 2. Clique sur **New → Web Service**
@@ -343,7 +345,7 @@ git push -u origin main
 | **Start Command** | `uvicorn main:app --host 0.0.0.0 --port $PORT` |
 | **Environment** | `Python 3` |
 
-### Étape 3 — Ajouter la variable d'environnement
+### Etape 3 — Ajouter la variable d'environnement
 
 Dans **Environment Variables** sur Render :
 
@@ -351,13 +353,17 @@ Dans **Environment Variables** sur Render :
 GROQ_API_KEY = gsk_xxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-### Étape 4 — Déployer
+### Etape 4 — Déployer le frontend (Static Site)
 
-Clique sur **Create Web Service**. Render va builder et déployer automatiquement.
+| Paramètre | Valeur |
+|-----------|--------|
+| **Root Directory** | `frontend` |
+| **Build Command** | `npm install && npm run build` |
+| **Publish Directory** | `dist` |
 
 ---
 
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 
 | Technologie | Rôle | Version |
 |-------------|------|---------|
@@ -376,23 +382,18 @@ Clique sur **Create Web Service**. Render va builder et déployer automatiquemen
 
 ---
 
-## 🧩 Ce que ce projet démontre
+## Ce que ce projet démontre
 
-✅ Maîtrise de **LangChain LCEL** pour construire des pipelines IA modulaires avec l'opérateur `|`
-
-✅ Implémentation complète d'un système **RAG** : chargement PDF → chunking → embeddings → vectorstore → retrieval → génération
-
-✅ Intégration de l'**API Groq** pour accéder à des LLMs open-source performants (LLaMA 3.1)
-
-✅ Création d'une **API REST** professionnelle avec FastAPI et documentation Swagger automatique
-
-✅ Gestion de la **mémoire de conversation** avec `MessagesPlaceholder` et historique des messages
-
-✅ Déploiement en **production** sur Render avec configuration CI/CD via GitHub
+- Maîtrise de **LangChain LCEL** pour construire des pipelines IA modulaires avec l'opérateur `|`
+- Implémentation complète d'un système **RAG** : chargement PDF → chunking → embeddings → vectorstore → retrieval → génération
+- Intégration de l'**API Groq** pour accéder à des LLMs open-source performants (LLaMA 3.1)
+- Création d'une **API REST** professionnelle avec FastAPI et documentation Swagger automatique
+- Gestion de la **mémoire de conversation** avec `MessagesPlaceholder` et historique des messages
+- Déploiement en **production** sur Render avec configuration CI/CD via GitHub
 
 ---
 
-## 📞 Contact
+## Contact
 
 Développé par **Morsia Guitdam Hinimdou**
 
