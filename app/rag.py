@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import FastEmbedEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -18,7 +18,7 @@ conversation_history = []
 
 
 def get_embeddings():
-    return FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+    return GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 
 def build_vectorstore():
