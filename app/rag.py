@@ -61,7 +61,11 @@ def get_rag_chain():
         search_kwargs={"k": 4},
     )
 
-    model = ChatGroq(model="llama-3.1-8b-instant")
+    
+model = ChatGroq(
+    model="llama-3.1-8b-instant",
+    api_key=os.getenv("GROQ_API_KEY")  
+)
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", """Tu es OrientBot, un conseiller d'orientation scolaire expert et bienveillant,
